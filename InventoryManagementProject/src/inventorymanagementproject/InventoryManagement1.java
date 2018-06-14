@@ -70,6 +70,7 @@ public class InventoryManagement1 extends javax.swing.JFrame {
         MenuFrame.setResizable(false);
         RenewalFrame.setResizable(false);
         AddFrame.setResizable(false);
+        AlertsFrame.setResizable(false);
        
     }
 
@@ -486,7 +487,7 @@ public class InventoryManagement1 extends javax.swing.JFrame {
                 .addContainerGap(14, Short.MAX_VALUE))
         );
 
-        UpdateFrame.setMinimumSize(new java.awt.Dimension(525, 405));
+        UpdateFrame.setMinimumSize(new java.awt.Dimension(600, 600));
 
         IDTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1214,6 +1215,8 @@ public class InventoryManagement1 extends javax.swing.JFrame {
                 .addGap(23, 23, 23))
         );
 
+        AlertsFrame.setMinimumSize(new java.awt.Dimension(590, 531));
+
         jTable4.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -1503,9 +1506,9 @@ public class InventoryManagement1 extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,"Product Info Successfully Added!!");
             
             
-               con.close();
+             /*  con.close();
                stmt.close();
-               res.close();
+               res.close();*/
                 
             }
                 catch(SQLException f)
@@ -1563,9 +1566,9 @@ public class InventoryManagement1 extends javax.swing.JFrame {
           /*  int  stock1=Integer.parseInt(StockTextField2.getText());
             
             stmt.executeUpdate("UPDATE unitled set stock="+stock1+" where id="+id1+";");*/
-               con.close();
+              /* con.close();
                stmt.close();
-               res.close();
+               res.close();*/
          
             
             
@@ -1639,9 +1642,9 @@ public class InventoryManagement1 extends javax.swing.JFrame {
              
              
              
-           con.close();
+          /* con.close();
            stmt.close();
-           res.close();
+           res.close();*/
          
             
             }
@@ -1681,8 +1684,8 @@ public class InventoryManagement1 extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null,"Product Info Successfully Deleted!!");
             
             
-           con.close();
-           stmt.close();
+         /*  con.close();
+           stmt.close();*/
         }
         catch(SQLException e)
         {
@@ -1722,7 +1725,7 @@ public class InventoryManagement1 extends javax.swing.JFrame {
             PriceTextField4.setText(String.valueOf(res.getInt(3)));
             StockTextField4.setText(String.valueOf(res.getInt(4)));
             minStockTextField4.setText(String.valueOf(res.getInt(5)));
-            taxTextField4.setText(String.valueOf(res.getInt(6)));
+            taxTextField4.setText(String.valueOf(res.getFloat(6)));
            //java.util.Date d= res.getDate(7);
              jDateChooser4.setDate(res.getDate(7));
              
@@ -1733,9 +1736,9 @@ public class InventoryManagement1 extends javax.swing.JFrame {
             
             }
             
-            con.close();
+          /*  con.close();
             stmt.close();
-            res.close();
+            res.close();*/
             
            
         }
@@ -1777,9 +1780,9 @@ public class InventoryManagement1 extends javax.swing.JFrame {
               date1=new java.sql.Date(res.getDate(7).getTime());
              model.addRow(new Object[] {id,name,price,stock1,minS,tax1,date1});
            }
-           con.close();
+         /*  con.close();
            res.close();
-           stmt.close();
+           stmt.close();*/
        }
        catch(SQLException e)
        {
@@ -1796,7 +1799,7 @@ public class InventoryManagement1 extends javax.swing.JFrame {
        //YOU HAVE TO SHOW TOTAL IN TEXT FIELD
        
         DefaultTableModel model=(DefaultTableModel)jTable1.getModel();
-        model.setRowCount(0);
+      //  model.setRowCount(0);
         try  //CHECK THE CODE
        {
            // con=DriverManager.getConnection("jdbc:mysql://localhost:3306/inventorydb","root","rachu1234");
@@ -1934,6 +1937,7 @@ public class InventoryManagement1 extends javax.swing.JFrame {
          total= (sales*(price+((price*tax)/100)));
          jTable1.getModel().setValueAt(total, i,4 );
          sum+=Float.parseFloat(jTable1.getModel().getValueAt(i,4)+"");
+         stmt.executeUpdate("INSERT INTO  salestable VALUES("+id+","+sales+",CURDATE());");
          
        } 
        
@@ -1958,27 +1962,28 @@ public class InventoryManagement1 extends javax.swing.JFrame {
         model.setRowCount(0);
         try
         {
-        if((new java.util.Date().after(jDateChooser5.getDate())||new java.util.Date().after(jDateChooser6.getDate()))) //CHANGES HERE
-             {
+       // if((new java.util.Date().after(jDateChooser5.getDate())||new java.util.Date().after(jDateChooser6.getDate()))) //CHANGES HERE
+         //    {
             /*  if((((new java.util.Date().equals(jDateChooser5.getDate())))||((new java.util.Date().equals(jDateChooser6.getDate())))))
               { }*/
             //  else
               //{
-                InvalidExpiryDateException exp=new InvalidExpiryDateException("INVALID DATE!");
-                throw exp;
+           //     InvalidExpiryDateException exp=new InvalidExpiryDateException("INVALID DATE!");
+            //    throw exp;
              // }
                 
-             }
+            // }
       // con=DriverManager.getConnection("jdbc:mysql://localhost:3306/inventorydb","root","rachu1234");
        //stmt=con.createStatement();
        java.sql.Date fromDate=new java.sql.Date(jDateChooser5.getDate().getTime());
        java.sql.Date toDate=new java.sql.Date(jDateChooser6.getDate().getTime());
-       res=stmt.executeQuery("SELECT * from untitled WHERE ExpiryDate BETWEEN '"+fromDate+"' AND '"+toDate+"';");
+       res=stmt.executeQuery("SELECT * from untitled,salestable WHERE date_of_sales BETWEEN '"+fromDate+"' AND '"+toDate+"' AND untitled.id=salestable.id;");
         while(res.next())
         {
-           int id=res.getInt(1);
-           String name=res.getString(2);
-           int sales=res.getInt(8);
+           int id=res.getInt("untitled.id");
+           String name=res.getString("untitled.name");
+           int sales=res.getInt("salestable.sales");
+           
            model.addRow(new Object[]{id,name,sales});
         }
         
@@ -1989,10 +1994,10 @@ public class InventoryManagement1 extends javax.swing.JFrame {
         {
            JOptionPane.showMessageDialog(null,e.getMessage()); 
         }
-        catch(InvalidExpiryDateException e)
+       /* catch(InvalidExpiryDateException e)
         {
             JOptionPane.showMessageDialog(null,e.getMessage());
-        }
+        }*/
          
     }//GEN-LAST:event_DateOKActionPerformed
 

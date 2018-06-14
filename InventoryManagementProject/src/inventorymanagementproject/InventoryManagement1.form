@@ -374,7 +374,7 @@
     <Container class="javax.swing.JFrame" name="UpdateFrame">
       <Properties>
         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[525, 405]"/>
+          <Dimension value="[600, 600]"/>
         </Property>
       </Properties>
 
@@ -1413,16 +1413,21 @@
       </SubComponents>
     </Container>
     <Container class="javax.swing.JFrame" name="AlertsFrame">
+      <Properties>
+        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[590, 531]"/>
+        </Property>
+      </Properties>
 
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                          <Component id="jScrollPane5" min="-2" pref="413" max="-2" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="jScrollPane5" min="-2" pref="413" max="-2" attributes="0"/>
                               <Component id="jScrollPane4" min="-2" pref="413" max="-2" attributes="0"/>
                           </Group>
                       </Group>
