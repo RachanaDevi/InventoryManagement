@@ -7,6 +7,7 @@ package inventorymanagementproject;
 import java.awt.Toolkit;
 import java.sql.*;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 /**
  *
@@ -193,6 +194,7 @@ public class InventoryManagement1 extends javax.swing.JFrame {
         QuantUpdateTextField1 = new javax.swing.JTextField();
         CALCULATE = new javax.swing.JButton();
         jLabel56 = new javax.swing.JLabel();
+        ClearButton = new javax.swing.JButton();
         jLabel55 = new javax.swing.JLabel();
         ViewSalesFrame = new javax.swing.JFrame();
         jPanel11 = new javax.swing.JPanel();
@@ -1054,6 +1056,15 @@ public class InventoryManagement1 extends javax.swing.JFrame {
         jLabel56.setText("GENERATE BILL");
         jPanel10.add(jLabel56, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 40, -1, -1));
 
+        ClearButton.setFont(new java.awt.Font("Nirmala UI", 1, 11)); // NOI18N
+        ClearButton.setText("CLEAR");
+        ClearButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ClearButtonActionPerformed(evt);
+            }
+        });
+        jPanel10.add(ClearButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 160, 70, -1));
+
         jLabel55.setIcon(new javax.swing.ImageIcon("C:\\Users\\Rachu\\Documents\\GitHub\\InventoryManagement\\InventoryManagementProject\\src\\inventorymanagementproject\\Background1.jpg")); // NOI18N
         jLabel55.setDoubleBuffered(true);
         jLabel55.setMinimumSize(new java.awt.Dimension(1024, 700));
@@ -1150,6 +1161,8 @@ public class InventoryManagement1 extends javax.swing.JFrame {
         AlertsFrame.setMinimumSize(new java.awt.Dimension(670, 570));
         AlertsFrame.setResizable(false);
 
+        jPanel12.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         jTable4.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -1174,6 +1187,8 @@ public class InventoryManagement1 extends javax.swing.JFrame {
             }
         });
         jScrollPane4.setViewportView(jTable4);
+
+        jPanel12.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(94, 389, 483, 91));
 
         jTable5.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -1200,6 +1215,8 @@ public class InventoryManagement1 extends javax.swing.JFrame {
         });
         jScrollPane5.setViewportView(jTable5);
 
+        jPanel12.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(94, 113, 473, 91));
+
         ExpiryDateButton.setFont(new java.awt.Font("Nirmala UI", 1, 11)); // NOI18N
         ExpiryDateButton.setText("OK");
         ExpiryDateButton.addActionListener(new java.awt.event.ActionListener() {
@@ -1207,6 +1224,7 @@ public class InventoryManagement1 extends javax.swing.JFrame {
                 ExpiryDateButtonActionPerformed(evt);
             }
         });
+        jPanel12.add(ExpiryDateButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(286, 237, 63, -1));
 
         MinStockButton.setFont(new java.awt.Font("Nirmala UI", 1, 11)); // NOI18N
         MinStockButton.setText("OK");
@@ -1215,62 +1233,20 @@ public class InventoryManagement1 extends javax.swing.JFrame {
                 MinStockButtonActionPerformed(evt);
             }
         });
+        jPanel12.add(MinStockButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(295, 498, 61, -1));
 
         jLabel40.setFont(new java.awt.Font("Nirmala UI", 1, 18)); // NOI18N
         jLabel40.setText("PRODUCTS THAT HAVE REACHED THEIR EXPIRY DATE");
+        jPanel12.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(99, 52, -1, -1));
 
         jLabel41.setFont(new java.awt.Font("Nirmala UI", 1, 18)); // NOI18N
         jLabel41.setText("PRODUCTS THAT HAVE REACHED THEIR MINIMUM STOCK");
+        jPanel12.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(79, 328, -1, -1));
 
         jLabel59.setIcon(new javax.swing.ImageIcon("C:\\Users\\Rachu\\Documents\\GitHub\\InventoryManagement\\InventoryManagementProject\\src\\inventorymanagementproject\\Background1.jpg")); // NOI18N
         jLabel59.setMinimumSize(new java.awt.Dimension(10, 10));
         jLabel59.setPreferredSize(null);
-
-        javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
-        jPanel12.setLayout(jPanel12Layout);
-        jPanel12Layout.setHorizontalGroup(
-            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel12Layout.createSequentialGroup()
-                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel12Layout.createSequentialGroup()
-                        .addGap(94, 94, 94)
-                        .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 483, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jLabel40)
-                                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 473, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(jPanel12Layout.createSequentialGroup()
-                        .addGap(286, 286, 286)
-                        .addComponent(ExpiryDateButton, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel12Layout.createSequentialGroup()
-                        .addGap(295, 295, 295)
-                        .addComponent(MinStockButton, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel12Layout.createSequentialGroup()
-                        .addGap(79, 79, 79)
-                        .addComponent(jLabel41)))
-                .addContainerGap(191, Short.MAX_VALUE))
-            .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jLabel59, javax.swing.GroupLayout.DEFAULT_SIZE, 665, Short.MAX_VALUE))
-        );
-        jPanel12Layout.setVerticalGroup(
-            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel12Layout.createSequentialGroup()
-                .addGap(52, 52, 52)
-                .addComponent(jLabel40)
-                .addGap(36, 36, 36)
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
-                .addComponent(ExpiryDateButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
-                .addComponent(jLabel41)
-                .addGap(36, 36, 36)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(MinStockButton)
-                .addGap(25, 25, 25))
-            .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jLabel59, javax.swing.GroupLayout.DEFAULT_SIZE, 524, Short.MAX_VALUE))
-        );
+        jPanel12.add(jLabel59, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 777, 546));
 
         javax.swing.GroupLayout AlertsFrameLayout = new javax.swing.GroupLayout(AlertsFrame.getContentPane());
         AlertsFrame.getContentPane().setLayout(AlertsFrameLayout);
@@ -1368,11 +1344,29 @@ public class InventoryManagement1 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void UserNameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserNameTextFieldActionPerformed
+    if(UserNameTextField.getText().equals("Rachana") && PasswordField.getText().equals("1234"))
+      {
         
+          MenuFrame.setVisible(true);
+      }
+          
+      else
+      {
+          JOptionPane.showMessageDialog(null,"INVALID LOGIN DETAILS");
+      }    
     }//GEN-LAST:event_UserNameTextFieldActionPerformed
 
     private void PasswordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PasswordFieldActionPerformed
-        // TODO add your handling code here:
+    if(UserNameTextField.getText().equals("Rachana") && PasswordField.getText().equals("1234"))
+      {
+        
+          MenuFrame.setVisible(true);
+      }
+          
+      else
+      {
+          JOptionPane.showMessageDialog(null,"INVALID LOGIN DETAILS");
+      }        // TODO add your handling code here:
     }//GEN-LAST:event_PasswordFieldActionPerformed
 
     private void SubmitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitButtonActionPerformed
@@ -1397,6 +1391,10 @@ public class InventoryManagement1 extends javax.swing.JFrame {
       GenBillFrame.setVisible(true);        
         DefaultTableModel model=(DefaultTableModel)jTable1.getModel();
        model.setRowCount(0);
+       IDCheckTextField1.setText("");
+       PNameTextField1.setText("");
+       TotalTextField1.setText("");
+       QuantUpdateTextField1.setText("");
 // TODO add your handling code here:
     }//GEN-LAST:event_GenBillButtonActionPerformed
 
@@ -1405,7 +1403,7 @@ public class InventoryManagement1 extends javax.swing.JFrame {
     }//GEN-LAST:event_RenewalButtonActionPerformed
 
     private void AlertsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AlertsButtonActionPerformed
-  AlertsFrame.setVisible(true);        // TODO add your handling code here:
+    AlertsFrame.setVisible(true);        // TODO add your handling code here:
     }//GEN-LAST:event_AlertsButtonActionPerformed
 
     private void ViewDbButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewDbButtonActionPerformed
@@ -1413,11 +1411,21 @@ public class InventoryManagement1 extends javax.swing.JFrame {
     }//GEN-LAST:event_ViewDbButtonActionPerformed
 
     private void ViewSalesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewSalesButtonActionPerformed
-    ViewSalesFrame.setVisible(true);        // TODO add your handling code here:
+    ViewSalesFrame.setVisible(true); 
+    jDateChooser5.setDate(null);
+    jDateChooser6.setDate(null);// TODO add your handling code here:
     }//GEN-LAST:event_ViewSalesButtonActionPerformed
 
     private void UpdateProdButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateProdButtonActionPerformed
-    UpdateFrame.setVisible(true);        // TODO add your handling code here:
+             IDTextField2.setText("");
+             NameTextField2.setText("");
+             PriceTextField2.setText("");
+             StockTextField2.setText("");
+             minStockTextField2.setText("");
+             taxTextField2.setText("");
+             jDateChooser2.setDate(null);   
+        UpdateFrame.setVisible(true);        // TODO add your handling code here:
+    
     }//GEN-LAST:event_UpdateProdButtonActionPerformed
 
     private void minStockTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minStockTextField1ActionPerformed
@@ -1425,16 +1433,31 @@ public class InventoryManagement1 extends javax.swing.JFrame {
     }//GEN-LAST:event_minStockTextField1ActionPerformed
 
     private void IDTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IDTextField1ActionPerformed
-        // TODO add your handling code here:
+         // TODO add your handling code here:
     }//GEN-LAST:event_IDTextField1ActionPerformed
 
     private void DelProdButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DelProdButtonActionPerformed
-    DelFrame.setVisible(true);        // TODO add your handling code here:
+    DelFrame.setVisible(true);    
+             IDTextField3.setText("");
+             NameTextField3.setText("");
+             PriceTextField3.setText("");
+             StockTextField3.setText("");
+             minStockTextField3.setText("");
+             taxTextField3.setText("");
+             jDateChooser3.setDate(null);         // TODO add your handling code here:
     }//GEN-LAST:event_DelProdButtonActionPerformed
 
     private void AddProdButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddProdButtonActionPerformed
     RenewalFrame.setVisible(false);
     AddFrame.setVisible(true);
+    
+             IDTextField1.setText("");
+             NameTextField1.setText("");
+             PriceTextField1.setText("");
+             StockTextField1.setText("");
+             minStockTextField1.setText("");
+             taxTextField1.setText("");
+             jDateChooser1.setDate(null);   
     }//GEN-LAST:event_AddProdButtonActionPerformed
 
     private void AddOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddOKActionPerformed
@@ -1448,8 +1471,13 @@ public class InventoryManagement1 extends javax.swing.JFrame {
              date1=new java.sql.Date((jDateChooser1.getDate().getTime()));
              try
              {
+             if(stock1<minS)
+             {
+                 throw new NegativeStockException("STOCK CANNOT BE LESS THAN MINIMUM STOCK!");
+             }
              
-         
+             
+            
           if(new java.util.Date().after(jDateChooser1.getDate())) //CHANGES HERE
              {
                 InvalidExpiryDateException exp=new InvalidExpiryDateException("INVALID EXPIRY DATE!");
@@ -1471,19 +1499,26 @@ public class InventoryManagement1 extends javax.swing.JFrame {
                 }
              }
              }
+             
+             catch(NegativeStockException e)
+             {
+                 JOptionPane.showMessageDialog(null,e.getMessage());
+             }
              catch(InvalidExpiryDateException e)
              {
                  JOptionPane.showMessageDialog(null,e.getMessage());
+             }
+             
+             catch(Exception e)
+             {
+                JOptionPane.showMessageDialog(null,e.getMessage()); 
              }
              
              finally
             {
             
                
-            }
-           
-         
-       
+            }   
     }//GEN-LAST:event_AddOKActionPerformed
 
     private void taxTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_taxTextField1ActionPerformed
@@ -1505,23 +1540,14 @@ public class InventoryManagement1 extends javax.swing.JFrame {
             PriceTextField2.setText(String.valueOf(res.getInt(3)));
             StockTextField2.setText(String.valueOf(res.getInt(4)));
             minStockTextField2.setText(String.valueOf(res.getInt(5)));
-            taxTextField2.setText(String.valueOf(res.getInt(6)));
+            taxTextField2.setText(String.valueOf(res.getFloat(6)));
            //java.util.Date d= res.getDate(7);
              jDateChooser2.setDate(res.getDate(7));
-             
-             
-             
-           
-             
-          /*  int  stock1=Integer.parseInt(StockTextField2.getText());
             
-            stmt.executeUpdate("UPDATE unitled set stock="+stock1+" where id="+id1+";");*/
-              /* con.close();
-               stmt.close();
-               res.close();*/
-         
-            
-            
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(null,"PRODUCT ID DOES NOT EXIST");
             }
             
            
@@ -1547,22 +1573,38 @@ public class InventoryManagement1 extends javax.swing.JFrame {
         {
         try
         {
+            
             //con=DriverManager.getConnection("jdbc:mysql://localhost:3306/inventorydb","root","rachu1234");
             //stmt=con.createStatement();
             id=Integer.parseInt(IDTextField2.getText());
              
             stock1=Integer.parseInt(StockTextField2.getText());
-            
+            minS=Integer.parseInt(minStockTextField2.getText());
+            if(stock1 <minS)
+            {
+                throw(new NegativeStockException("STOCK CANNOT BE LESS THAN MINIMUM STOCK!!"));
+            }
+            else
+            {
             stmt.executeUpdate("UPDATE untitled set stock="+stock1+" where id="+id+";");
               
               JOptionPane.showMessageDialog(null,"Product Info Successfully Updated!!");
-            
+            }
            
+        }
+        
+        catch(NegativeStockException e)
+        {
+            JOptionPane.showConfirmDialog(this,e.getMessage());
         }
         catch(SQLException e)
         {
-             JOptionPane.showConfirmDialog(this,e);
+             JOptionPane.showConfirmDialog(this,e.getMessage());
         }
+        catch(Exception e)
+             {
+                JOptionPane.showMessageDialog(null,e.getMessage()); 
+             }
         }
        
          
@@ -1586,7 +1628,7 @@ public class InventoryManagement1 extends javax.swing.JFrame {
             PriceTextField3.setText(String.valueOf(res.getInt(3)));
             StockTextField3.setText(String.valueOf(res.getInt(4)));
             minStockTextField3.setText(String.valueOf(res.getInt(5)));
-            taxTextField3.setText(String.valueOf(res.getInt(6)));
+            taxTextField3.setText(String.valueOf(res.getFloat(6)));
            //java.util.Date d= res.getDate(7);
              jDateChooser3.setDate(res.getDate(7));
              
@@ -1598,7 +1640,9 @@ public class InventoryManagement1 extends javax.swing.JFrame {
          
             
             }
-            
+             else {
+                 JOptionPane.showMessageDialog(null, "PRODUCT ID DOES NOT EXIST");
+             }
            
         }
           
@@ -1627,12 +1671,17 @@ public class InventoryManagement1 extends javax.swing.JFrame {
             con=DriverManager.getConnection("jdbc:mysql://localhost:3306/inventorydb","root","rachu1234");
             stmt=con.createStatement();
             id=Integer.parseInt(IDTextField3.getText());
-             
             
             
-            stmt.executeUpdate("DELETE from untitled  where id="+id+";");
-                JOptionPane.showMessageDialog(null,"Product Info Successfully Deleted!!");
-            
+            int res= stmt.executeUpdate("DELETE from untitled  where id="+id+";");
+            if(res>0)
+            {
+            JOptionPane.showMessageDialog(null,"Product Info Successfully Deleted!!");
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(null,"PRODUCT ID DOES NOT EXIST!!");
+            }
             
          /*  con.close();
            stmt.close();*/
@@ -1640,6 +1689,11 @@ public class InventoryManagement1 extends javax.swing.JFrame {
         catch(SQLException e)
         {
              JOptionPane.showMessageDialog(null,e);
+        }
+        
+        catch(Exception e)
+        {
+            JOptionPane.showMessageDialog(null,e);
         }
         }
     }//GEN-LAST:event_AddOK2ActionPerformed
@@ -1650,6 +1704,13 @@ public class InventoryManagement1 extends javax.swing.JFrame {
 
     private void SearchProdButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchProdButtonActionPerformed
      SearchProductFrame.setVisible(true);        // TODO add your handling code here:
+      IDTextField4.setText("");
+             NameTextField4.setText("");
+             PriceTextField4.setText("");
+             StockTextField4.setText("");
+             minStockTextField4.setText("");
+             taxTextField4.setText("");
+             jDateChooser4.setDate(null); 
     }//GEN-LAST:event_SearchProdButtonActionPerformed
 
     private void IDTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IDTextField4ActionPerformed
@@ -1685,6 +1746,10 @@ public class InventoryManagement1 extends javax.swing.JFrame {
          
             
             }
+              else
+            {
+                JOptionPane.showMessageDialog(null,"PRODUCT ID DOES NOT EXIST");
+            }
             
           /*  con.close();
             stmt.close();
@@ -1696,6 +1761,10 @@ public class InventoryManagement1 extends javax.swing.JFrame {
         catch(SQLException e)
         {e.printStackTrace();
              JOptionPane.showConfirmDialog(this,e);
+        }
+        catch(Exception e)
+        {
+            JOptionPane.showConfirmDialog(this,e);
         }
      finally
          {
@@ -1844,7 +1913,8 @@ public class InventoryManagement1 extends javax.swing.JFrame {
     }//GEN-LAST:event_QuantUpdateTextField1ActionPerformed
 
     private void CALCULATEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CALCULATEActionPerformed
-        int rowsCount=jTable1.getRowCount();
+       
+       int rowsCount=jTable1.getRowCount();
        float sum=0;
        int s,id=0;
         int sales,sales1,newStock=0;
@@ -1857,13 +1927,14 @@ public class InventoryManagement1 extends javax.swing.JFrame {
          sales1=sales;
 
 
-          String pName=jTable1.getModel().getValueAt(i,0)+""; 
+            String pName=jTable1.getModel().getValueAt(i,0)+""; 
             res=stmt.executeQuery("Select *from untitled where name='"+pName+"';");
             if(res.next()){
                 
                 id=res.getInt(1);
                 sales1+=res.getInt(8);
                 newStock=res.getInt(4);
+                System.out.println(newStock);
                 try
                 {
                 if(sales>newStock)
@@ -1913,10 +1984,9 @@ public class InventoryManagement1 extends javax.swing.JFrame {
         model.setRowCount(0);
         try
         {
-       
-       java.sql.Date fromDate=new java.sql.Date(jDateChooser5.getDate().getTime());
-       java.sql.Date toDate=new java.sql.Date(jDateChooser6.getDate().getTime());
-       res=stmt.executeQuery("SELECT distinct * from untitled,salestable WHERE date_of_sales BETWEEN '"+fromDate+"' AND '"+toDate+"' AND untitled.id=salestable.id;");
+        java.sql.Date fromDate=new java.sql.Date(jDateChooser5.getDate().getTime());
+        java.sql.Date toDate=new java.sql.Date(jDateChooser6.getDate().getTime());
+        res=stmt.executeQuery("SELECT distinct * from untitled,salestable WHERE date_of_sales BETWEEN '"+fromDate+"' AND '"+toDate+"' AND untitled.id=salestable.id;");
         while(res.next())
         {
            int id=res.getInt("untitled.id");
@@ -1924,9 +1994,7 @@ public class InventoryManagement1 extends javax.swing.JFrame {
            int sales=res.getInt("salestable.sales");
            
            model.addRow(new Object[]{id,name,sales});
-        }
-        
-        
+        } 
         }
         
         catch(SQLException e)
@@ -1966,7 +2034,7 @@ public class InventoryManagement1 extends javax.swing.JFrame {
       {
           // con=DriverManager.getConnection("jdbc:mysql://localhost:3306/inventorydb","root","rachu1234");
            //stmt=con.createStatement();
-           res=stmt.executeQuery("SELECT * FROM untitled where stock=minStock;");
+           res=stmt.executeQuery("SELECT * FROM untitled where stock<=minStock;");
            while(res.next())
            {
                
@@ -2071,6 +2139,12 @@ public class InventoryManagement1 extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_TotalTextField1ActionPerformed
 
+    private void ClearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClearButtonActionPerformed
+    PNameTextField1.setText("");
+    QuantUpdateTextField1.setText("");
+    IDCheckTextField1.setText("");
+    }//GEN-LAST:event_ClearButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -2129,6 +2203,7 @@ public class InventoryManagement1 extends javax.swing.JFrame {
     private javax.swing.JButton BackButton4;
     private javax.swing.JButton BackButton5;
     private javax.swing.JButton CALCULATE;
+    private javax.swing.JButton ClearButton;
     private javax.swing.JButton ClearButton1;
     private javax.swing.JButton ClearButton2;
     private javax.swing.JButton ClearButton3;
